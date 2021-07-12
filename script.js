@@ -14,7 +14,7 @@ pizzaJson.map((item, index) => {
   pizzaItem.querySelector('.pizza-item--name').innerHTML = item.name;
   pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
 
-  // Modal
+  // Listagem das Pizzas
   pizzaItem.querySelector('a').addEventListener('click', (e) => {
     e.preventDefault();
     let key = e.target.closest('.pizza-item').getAttribute('data-key');
@@ -44,4 +44,16 @@ pizzaJson.map((item, index) => {
   });
 
   c('.pizza-area').append( pizzaItem );
+});
+
+// Eventos do Modal
+function closeModal() {
+  c('.pizzaWindowArea').style.opacity = 0;
+  setTimeout(() => {
+    c('.pizzaWindowArea').style.display = 'none';
+  }, 500);
+}
+
+cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) => {
+  item.addEventListener('click', closeModal);
 });
